@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>CalificacionesApi - LogIn</title>
+</head>
+<body>
+	<div style="padding-top: 25vh; width: 50vw; margin: auto;">
+	<fieldset>
+	 <a th:href="@{/logout}">Log Out</a> | <a href="/cliente">Cliente</a> | <a href="/admin">Admin</a>
+		<form th:action="@{/login}" method="post">
+			<h1>CalificacionesApi</h1>
+			<input type="text" name="username" placeholder="Usuario"> <input
+				type="password" name="password" placeholder="Contrasena">
+
+			<div th:if="${param.error}">
+				<p style="color: red;">Usuario y/o contrasena invalidos</p>
+			</div>
+			<button type="submit">LogIn</button>
+		</form>
+		</fieldset>
+			<p class="small" style="color: gray;"> admin/admin  |  cliente/cliente</p>
+	</div>
+
+</body>
+</html>

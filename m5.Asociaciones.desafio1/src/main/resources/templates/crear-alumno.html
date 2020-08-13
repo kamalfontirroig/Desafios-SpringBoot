@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Ingreso Alumnos</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+<div class="d-inline-block col-6 text-center">
+<nav class="navbar d-inline-block">
+	<ul class="nav">
+		<li class="nav-item "><a class="nav-link active "
+			href="/alumno/lista">Alumnos</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/direccion/lista">Direcciones</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/alumno/crear">Nuevo Alumno</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/direccion/crear">Nueva Dirección</a></li>
+	</ul>
+	</nav>
+	<h1>Registrar Alumno</h1>
+	<br>
+	<form th:action="@{/alumno/creado}" method="post" th:object="${alumno}" >
+
+		<div class="col-10">
+			<input class="form-control" required type="text" id="rut"
+				placeholder="Rut" name="rut">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="text" id="nombre"
+				placeholder="nombre" name="Nombre">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="text" id="apellido"
+				placeholder="Apellido" name="apellido">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="email" id="email"
+				placeholder="Email" name="email">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="number" id="edad"
+				placeholder="Edad" name="edad">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="date" id="fechaIngreso"
+				placeholder="Fecha de Registro" name="fechaIngreso">
+		</div>
+		<div th:if="${direcciones.isEmpty()}">
+		<h5 ><br>No se han ingresado
+			direcciones<br><br></h5>
+			<p> Debes registrar una direccion para ingresar un alumno
+			</div>
+		<br><div th:unless="${direcciones.isEmpty()}">
+			<label>Dirección</label> <br><select th:field="*{direccion}">
+				<option th:each="direccion : ${direcciones}"
+					th:value="${direccion.id}"
+					th:text="${direccion.calle +' '+ direccion.numero +', '+ direccion.ciudad}"></option>
+			</select>
+		</div><br><br>
+		<button th:unless="${direcciones.isEmpty()}" type="submit" class="btn  btn-success">Registrar</button>
+	</form>
+	</div>
+</body>
+</html>

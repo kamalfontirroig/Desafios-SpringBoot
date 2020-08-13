@@ -1,0 +1,4 @@
+Para acceder a la informacion de este REST, ingrese a la url raiz:
+
+http://localhost:8080/
+

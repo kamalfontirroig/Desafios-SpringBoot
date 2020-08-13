@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Ingreso Pasajeros</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+<div class="d-inline-block col-6 text-center">
+<nav class="navbar d-inline-block">
+	<ul class="nav">
+		<li class="nav-item "><a class="nav-link active "
+			href="/pasajero/lista">Pasajeros</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/destino/lista">Destinos</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/pasajero/crear">Nuevo Pasajero</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/destino/crear">Nuevo Destino</a></li>
+	</ul>
+	</nav>
+	<h1>Nuevo Pasajero</h1>
+	<br>
+	<form th:action="@{/pasajero/creado}" method="post" th:object="${pasajero}" >
+
+		<div class="col-10">
+			<input class="form-control" required type="text" id="rut"
+				placeholder="Rut" name="rut">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="text" id="nombre"
+				placeholder="Nombre" name="nombre">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="text" id="apellido"
+				placeholder="Apellido" name="apellido">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="text" id="ciudad"
+				placeholder="Ciudad Natal" name="ciudadNatal">
+		</div>
+		<div class="col-10">
+			<input class="form-control" required type="number" id="edad"
+				placeholder="Edad" name="edad">
+		</div>
+		
+		<button type="submit" class="btn  btn-success">Registrar Pasajero</button>
+	</form>
+	</div>
+</body>
+</html>
